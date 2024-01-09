@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import SearchBar from "../components/common/searchBar";
+import SearchBar from "../components/common/SearchBar";
 import ItemList from "../components/common/ItemList";
 
 const data = [
