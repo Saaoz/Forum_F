@@ -137,19 +137,19 @@ const MainPage: React.FC = () => {
             <h1>Page d'Accueil</h1>
             <div>
                 <label>
-                    <input type="checkbox" name="user" checked={filter.user} onChange={handleFilterChange} />
+                    <input  type="checkbox" name="user" checked={filter.user} onChange={handleFilterChange} />
                     User
                 </label>
                 <label>
-                    <input type="checkbox" name="topic" checked={filter.topic} onChange={handleFilterChange} />
+                    <input  type="checkbox" name="topic" checked={filter.topic} onChange={handleFilterChange} />
                     Topic
                 </label>
                 <label>
-                    <input type="checkbox" name="tag" checked={filter.tag} onChange={handleFilterChange} />
+                    <input  type="checkbox" name="tag" checked={filter.tag} onChange={handleFilterChange} />
                     Tag
                 </label>
                 <label>
-                    <input type="checkbox" name="category" checked={filter.category} onChange={handleFilterChange} />
+                    <input  type="checkbox" name="category" checked={filter.category} onChange={handleFilterChange} />
                     Category
                 </label>
             </div>
