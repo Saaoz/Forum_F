@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import ItemList from "./ItemList";
 import { FilterProps, SearchItem } from "../context/types";
 import { categoryData, tagData, topicData, userData } from "../../api/Data";
+import "../../style/Header.css"
 
 
 const Header: React.FC = () => {
@@ -111,7 +112,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div>
+    <header>
+      Logo
+    <div className="searchbar">
     <SearchBar
       onSearch={handleSearch}
       onChange={handleChange}
@@ -119,7 +122,9 @@ const Header: React.FC = () => {
       onFilterChange={handleFilterChange}
     />
     {filteredData.length > 0 && <ItemList items={filteredData} />}
-  </div>
+    </div>
+      Profil
+    </header>
   );
 };
 

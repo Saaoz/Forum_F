@@ -9,20 +9,20 @@ interface SearchFiltersProps {
 const SearchFilters: React.FC<SearchFiltersProps> = ({ filter, onFilterChange }) => {
 
     return (
-        <div>
-          <label>
+        <div className="boxlist">
+          <label className="boxitem">
             <input type="checkbox" name="user" checked={filter.user} onChange={onFilterChange} />
             User
           </label>
-          <label>
+          <label className="boxitem">
             <input type="checkbox" name="topic" checked={filter.topic} onChange={onFilterChange} />
             Topic
           </label>
-          <label>
+          <label className="boxitem">
             <input type="checkbox" name="tag" checked={filter.tag} onChange={onFilterChange} />
             Tag
           </label>
-          <label>
+          <label className="boxitem">
             <input type="checkbox" name="category" checked={filter.category} onChange={onFilterChange} />
             Category
           </label>

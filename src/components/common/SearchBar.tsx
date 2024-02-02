@@ -43,7 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
 
   return (
-    <div>
+    <div className='undersearchbar'>
       <SearchFilters filter={filter} onFilterChange={onFilterChange} />
       <form onSubmit={handleSubmit}>
         <input

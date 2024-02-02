@@ -11,9 +11,9 @@ interface ItemListProps {
 
 const ItemList: React.FC<ItemListProps> = ({ items }) => {
     return (
-        <ul>
+        <ul className="itemlist">
             {items.map(item => (
-                <li key={item.id}> {item.name} </li>
+                <li key={item.id} className="item"> {item.name} </li>
             ))}
         </ul>
     );
