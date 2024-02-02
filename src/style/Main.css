@@ -1,0 +1,13 @@
+.menu_main{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+    text-align: center;
+    gap: 2rem;
+}
+
+.menu_list_h3link{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
