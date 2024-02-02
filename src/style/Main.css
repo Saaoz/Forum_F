@@ -1,3 +1,8 @@
+.body_main{
+    display: flex;
+    justify-content: space-around;
+}
+
 .menu_main{
     display: flex;
     flex-direction: column;
@@ -10,4 +15,19 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+}
+
+.header_body{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.body_body{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.tag_list{
+    display: flex;
 }
