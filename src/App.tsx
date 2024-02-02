@@ -1,8 +1,12 @@
-import "./App.css";
+import "./style/App.css";
+import "./style/helpers.css";
+import "./style/reset.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/Main";
 import Profil from "./pages/Profil";
+
+
 
 const App: React.FC = () => {
   return (
