@@ -1,17 +1,17 @@
 import React from "react";
-import H3WithLink from "./H3WithLink";
+import ListItemWithLink from "./ListItemWithLink";
 
 const MainMenu: React.FC = () => {
   return (
     <div className="menu_main">
       <div className="menu_list_h3link">
-        <H3WithLink name="Top Topic" to="/accueil" />
-        <H3WithLink name="Explorer" to="/randomcategory" />
-        <H3WithLink name="Notification" to="/Notification" />
-        <H3WithLink name="Messages" to="/PrivateMessages" />
-        <H3WithLink name="Favoris" to="/Favoris" />
-        <H3WithLink name="Profil" to="/Profil" />
-        <H3WithLink name="Plus" to="/Plus?" />
+        <ListItemWithLink as="h3" name="Top Topic" to="/accueil" />
+        <ListItemWithLink as="h3" name="Explorer" to="/randomcategory" />
+        <ListItemWithLink as="h3" name="Notification" to="/Notification" />
+        <ListItemWithLink as="h3" name="Messages" to="/PrivateMessages" />
+        <ListItemWithLink as="h3" name="Favoris" to="/Favoris" />
+        <ListItemWithLink as="h3" name="Profil" to="/Profil" />
+        <ListItemWithLink as="h3" name="Plus" to="/Plus?" />
       </div>
       <button>Nouveau Topic</button>
     </div>

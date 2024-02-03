@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
-import ItemList from "./ItemList";
 import { FilterProps, SearchItem } from "../context/types";
 import { categoryData, tagData, topicData, userData } from "../../api/Data";
 import "../../style/Header.css"
+import ListItemWithLink from "./ListItemWithLink";
 
 
 const Header: React.FC = () => {
@@ -121,7 +121,12 @@ const Header: React.FC = () => {
       filter={filter} 
       onFilterChange={handleFilterChange}
     />
-    {filteredData.length > 0 && <ItemList items={filteredData} />}
+    {filteredData.map((item) => (
+      <ListItemWithLink key={item.id} name={item.name} to={`/`} />
+    ))}
+{/* {filteredData.map((item) => (
+<ListItemWithLink key={item.id} name={item.name} to={`/${item.category}/${item.name}`} />
+))} */}
     </div>
       Profil
     </header>

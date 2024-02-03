@@ -2,8 +2,8 @@ import React from "react";
 import Header from "../components/common/Header";
 import MainMenu from "../components/common/MainMenu";
 import "../style/Main.css";
-import ItemList from "../components/common/ItemList";
 import { categoryData, tagData } from "../api/Data";
+import ListItemWithLink from "../components/common/ListItemWithLink";
 
 const MainPage: React.FC = () => {
 
@@ -59,15 +59,15 @@ const MainPage: React.FC = () => {
         <div>
         <div className="menu top_category">
             <h3>Top catégorie</h3>
-            <ItemList items={categoryData.slice(0, 7)} />
+            {categoryData.slice(0,7).map((item) => (
+              <ListItemWithLink key={item.id} name={item.name} to={`/`} />
+            ))}
         </div>
         <div className="menu top_tags">
             <h3>Top Tags</h3>
-            <ItemList items={tagData.slice(0, 7)} />
-              {/* {tagData.map(cat => (
-                <ItemList key={cat.id}  items={[cat]} />
-              ))} exemple de map fonctionnel mais pas optimisé*/} 
-            
+            {tagData.slice(0,7).map((item) => (
+              <ListItemWithLink key={item.id} name={item.name} to={`/`} />
+            ))}
         </div>
         </div>
       </div>
