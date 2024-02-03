@@ -2,8 +2,12 @@ import React from "react";
 import Header from "../components/common/Header";
 import MainMenu from "../components/common/MainMenu";
 import "../style/Main.css";
+import ItemList from "../components/common/ItemList";
+import { categoryData, tagData } from "../api/Data";
 
 const MainPage: React.FC = () => {
+
+
   return (
     <>
       <Header />
@@ -53,25 +57,17 @@ const MainPage: React.FC = () => {
           </div>
         </div>
         <div>
-        <div className="menu_top_category">
+        <div className="menu top_category">
             <h3>Top catégorie</h3>
-            <ul>
-              <li>Cat 1</li>
-              <li>Cat 2</li>
-              <li>Cat 3</li>
-              <li>Cat 4</li>
-              <li>Cat 5</li>
-            </ul>
+            <ItemList items={categoryData.slice(0, 7)} />
         </div>
-        <div className="menu_top_tags">
+        <div className="menu top_tags">
             <h3>Top Tags</h3>
-            <ul>
-              <li>Tags 1</li>
-              <li>Tags 2</li>
-              <li>Tags 3</li>
-              <li>Tags 4</li>
-              <li>Tags 5</li>
-            </ul>
+            <ItemList items={tagData.slice(0, 7)} />
+              {/* {tagData.map(cat => (
+                <ItemList key={cat.id}  items={[cat]} />
+              ))} exemple de map fonctionnel mais pas optimisé*/} 
+            
         </div>
         </div>
       </div>
