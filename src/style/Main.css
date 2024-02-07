@@ -19,13 +19,12 @@
 
 .header_body{
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-around;
 }
 
 .body_body{
     display: flex;
-    gap: 1.5rem;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .tag_list{
@@ -37,4 +36,10 @@
     flex-direction: column;
     text-align: center;
     margin-bottom: 1.5rem;
+}
+
+.main_central{
+    display: flex;
+    flex-direction: column;
+    width: 70rem;
 }
