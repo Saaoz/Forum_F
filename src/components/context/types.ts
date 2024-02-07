@@ -13,3 +13,10 @@ export type FilterProps = {
 export type FilterChangeHandler = (
   e: React.ChangeEvent<HTMLInputElement>
 ) => void;
+
+export type Topics = {
+  id: number;
+  title: string;
+  reply: number;
+  activity: string;
+}
