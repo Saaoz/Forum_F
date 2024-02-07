@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../components/common/Header";
 import MainMenu from "../components/common/MainMenu";
 import "../style/Main.css";
-import { categoryData, tagData } from "../api/Data";
+import { TopicsData, categoryData, tagData } from "../api/Data";
 import ListItemWithLink from "../components/common/ListItemWithLink";
+import TopicsItem from "../components/common/TopicsItem";
 
 const MainPage: React.FC = () => {
 
@@ -19,14 +20,13 @@ const MainPage: React.FC = () => {
             <h4>Responses</h4>
             <h4>Activité</h4>
           </div>
+          {TopicsData.slice(0,15).map((data) => (
+            <TopicsItem id={data.id} title={data.title} reply={data.reply} activity={data.activity} to={`/`} />
+          ))}
           <div className="body_body">
             <div className="titre_tag">
               <h5>Titre du topic</h5>
-              <div className="tag_list">
-                <h6>tag 1</h6>
-                <h6>tag 2</h6>
-                <h6>tag 3</h6>
-              </div>
+              
             </div>
             <h5>25</h5>
             <h5>1h</h5>
@@ -34,23 +34,6 @@ const MainPage: React.FC = () => {
           <div className="body_body">
             <div className="titre_tag">
               <h5>Titre du topic</h5>
-              <div className="tag_list">
-                <h6>tag 1</h6>
-                <h6>tag 2</h6>
-                <h6>tag 3</h6>
-              </div>
-            </div>
-            <h5>25</h5>
-            <h5>1h</h5>
-          </div>
-          <div className="body_body">
-            <div className="titre_tag">
-              <h5>Titre du topic</h5>
-              <div className="tag_list">
-                <h6>tag 1</h6>
-                <h6>tag 2</h6>
-                <h6>tag 3</h6>
-              </div>
             </div>
             <h5>25</h5>
             <h5>1h</h5>
