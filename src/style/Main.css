@@ -1,0 +1,45 @@
+.body_main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu_main{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+    text-align: center;
+    gap: 2rem;
+}
+
+.menu_list_h3link{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.header_body{
+    display: flex;
+    justify-content: space-around;
+}
+
+.body_body{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tag_list{
+    display: flex;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.main_central{
+    display: flex;
+    flex-direction: column;
+    width: 70rem;
+}
