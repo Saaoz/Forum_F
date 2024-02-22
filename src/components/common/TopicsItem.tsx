@@ -1,16 +1,10 @@
 import React from "react";
+import { Topic } from "../context/types";
 
-interface TopicsItemProps {
-    id: number;
-    title: string;
-    to: string;
-    reply: number;
-    activity: string;
-}
 
-const TopicsItem: React.FC<TopicsItemProps> = ({id, title, to, reply, activity}) => {
+const TopicsItem: React.FC<Topic> = ({id, title}) => {
     const handleclick = () => {
-        console.log(`Redirection vers ${to}`);
+        // console.log(`Redirection vers ${to}`);
     };
 
     return (
@@ -18,8 +12,6 @@ const TopicsItem: React.FC<TopicsItemProps> = ({id, title, to, reply, activity})
             <div className="titre_tag">
               <h5>{title}</h5>
             </div>
-            <h5>{reply}</h5>
-            <h5> {activity} </h5>
         </div>
     );
 };
