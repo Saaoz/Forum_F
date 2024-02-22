@@ -1,4 +1,4 @@
-import { SearchItem, Topics } from "../components/context/types";
+import { SearchItem} from "../components/context/types";
 
 // Données factices pour les utilisateurs
 const userData: SearchItem[] = [
@@ -60,16 +60,8 @@ const userData: SearchItem[] = [
     { id: 11, name: "java 4" },
   ];
 
-  const TopicsData: Topics[] = [
-    { id:1, title:"Comment apprendre React ?",reply:150, activity:'10h' },
-    { id:2, title:"Prisma est-il adapté pour les gros projets ?",reply:300, activity:'10j' },
-    { id:3, title:"Meileur Norecoil PUBG",reply:5, activity:'2h' },
-    { id:4, title:"Unshrouded ? Nouveau survival",reply:12, activity:'20min'},
-    { id:5, title:"Palworld une copie de pokemon ?",reply:5024, activity:'50s' },
-    { id:6, title:"Meilleur MMORPG 2024",reply:25, activity:'1mois' },
-  ];
 
 
   
-export { userData, topicData, tagData, categoryData, TopicsData }
+export { userData, topicData, tagData, categoryData }
 
