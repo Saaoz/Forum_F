@@ -15,14 +15,6 @@ export type FilterProps = {
 export type FilterChangeHandler = (
   e: React.ChangeEvent<HTMLInputElement>
 ) => void;
-
-export type Topics = {
-  id: number;
-  title: string;
-  reply: number;
-  activity: string;
-}
-
 //Type working with back-end 
 
 export type User = {
