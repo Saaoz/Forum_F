@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/common/Header";
 import MainMenu from "../components/common/MainMenu";
 import "../style/Main.css";
-import { TopicsData, categoryData, tagData } from "../api/Data";
+import { categoryData, tagData } from "../api/Data";
 import ListItemWithLink from "../components/common/ListItemWithLink";
 import TopicsItem from "../components/common/TopicsItem";
+import { fetchAllTopics } from "../api/Topics";
+import { Topic } from "../components/context/types";
 
 const MainPage: React.FC = () => {
+  const [topics, setTopics] = useState<Topic[]>([]);
 
+  useEffect(() => {
+    const getTopics = async() => {
+      try {
+        const data = await fetchAllTopics();
+        setTopics(data)
+      } catch (error) {
+        console.error(error)
+      }      
+    };
+    getTopics();
+  }, []);
 
   return (
     <>
@@ -20,24 +34,9 @@ const MainPage: React.FC = () => {
             <h4>Responses</h4>
             <h4>Activité</h4>
           </div>
-          {TopicsData.slice(0,15).map((data) => (
-            <TopicsItem id={data.id} title={data.title} reply={data.reply} activity={data.activity} to={`/`} />
+          {topics.map((topic) => (
+            <TopicsItem id={topic.id} title={topic.title} />
           ))}
-          <div className="body_body">
-            <div className="titre_tag">
-              <h5>Titre du topic</h5>
-              
-            </div>
-            <h5>25</h5>
-            <h5>1h</h5>
-          </div>
-          <div className="body_body">
-            <div className="titre_tag">
-              <h5>Titre du topic</h5>
-            </div>
-            <h5>25</h5>
-            <h5>1h</h5>
-          </div>
         </div>
         <div>
         <div className="menu top_category">
