@@ -99,9 +99,9 @@ export const addTagToTopic = async (topicId: Number, tagId: Number): Promise<Tag
     }
 }
 
-export const updateTag = async (): Promise<Tag[]> => {
+export const updateTag = async (id:Number): Promise<Tag[]> => {
     try {
-        const res = await api.patch<Tag[]>(`tags/`);
+        const res = await api.patch<Tag[]>(`tags/${id}/update`);
         return res.data;
     } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -115,9 +115,9 @@ export const updateTag = async (): Promise<Tag[]> => {
     }
 }
 
-export const deleteTagFromTopic = async (): Promise<Tag[]> => {
+export const deleteTagFromTopic = async (topicId:Number, tagId:Number ): Promise<Tag[]> => {
     try {
-        const res = await api.delete<Tag[]>(`tags/`);
+        const res = await api.delete<Tag[]>(`tags/topic/${topicId}/tag/${tagId}/delete`);
         return res.data;
     } catch (error) {
         if (axios.isAxiosError(error)) {
