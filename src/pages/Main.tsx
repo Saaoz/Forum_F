@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/common/Header";
 import MainMenu from "../components/common/MainMenu";
 import "../style/Main.css";
-import { categoryData, tagData } from "../api/Data";
 import ListItemWithLink from "../components/common/ListItemWithLink";
 import TopicsItem from "../components/common/TopicsItem";
 import { fetchAllTopics } from "../api/Topics";
@@ -34,22 +33,22 @@ const MainPage: React.FC = () => {
             <h4>Responses</h4>
             <h4>Activité</h4>
           </div>
-          {topics.map((topic) => (
-            <TopicsItem id={topic.id} title={topic.title} />
+          {topics.map((topic, index) => (
+            <TopicsItem key={`item-${topic.id}-${index}`} id={topic.id} title={topic.title} index={index} />
           ))}
         </div>
         <div>
         <div className="menu top_category">
             <h3>Top catégorie</h3>
-            {categoryData.slice(0,7).map((item) => (
+            {/* {categoryData.slice(0,7).map((item) => (
               <ListItemWithLink key={item.id} name={item.name} to={`/`} />
-            ))}
+            ))} */}
         </div>
         <div className="menu top_tags">
             <h3>Top Tags</h3>
-            {tagData.slice(0,7).map((item) => (
+            {/* {tagData.slice(0,7).map((item) => (
               <ListItemWithLink key={item.id} name={item.name} to={`/`} />
-            ))}
+            ))} */}
         </div>
         </div>
       </div>
