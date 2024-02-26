@@ -19,7 +19,7 @@ export const fetchAllCategory = async (): Promise<Category[]> => {
     }
 }
 
-export const fetchCategoryById = async (id: Number): Promise<Category[]> => {
+export const fetchCategoryById = async (id: number): Promise<Category[]> => {
     try {
         const res = await api.get<Category[]>(`category/${id}`);
         return res.data;
@@ -35,7 +35,7 @@ export const fetchCategoryById = async (id: Number): Promise<Category[]> => {
     }
 }
 
-export const fetchCategoryByName = async (name: String): Promise<Category[]> => {
+export const fetchCategoryByName = async (name: string): Promise<Category[]> => {
     try {
         const res = await api.get<Category[]>(`category/${name}`);
         return res.data;
@@ -68,7 +68,7 @@ export const createCategory = async (categoryData:Category): Promise<Category[]>
 }
 
 
-export const updateCategory = async (id: Number, categoryData:Category): Promise<Category[]> => {
+export const updateCategory = async (id: number, categoryData:Category): Promise<Category[]> => {
     try {
         const res = await api.post<Category[]>(`category/${id}/update`, categoryData);
         return res.data;
@@ -86,7 +86,7 @@ export const updateCategory = async (id: Number, categoryData:Category): Promise
 
 
 
-export const switchActive = async (id: Number): Promise<Category[]> => {
+export const switchActive = async (id: number): Promise<Category[]> => {
     try {
         const res = await api.patch<Category[]>(`category/${id}/switch`);
         return res.data;

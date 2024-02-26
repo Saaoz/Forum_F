@@ -18,7 +18,7 @@ export const fetchAllReplyNoFilter = async (): Promise<Reply[]> => {
     }
 }
 
-export const fetchAllReplyFromTopicTitle = async (title: String): Promise<Reply[]> => {
+export const fetchAllReplyFromTopicTitle = async (title: string): Promise<Reply[]> => {
     try {
         const res = await api.get<Reply[]>(`replies/topictitle/${title}`);
         return res.data;
@@ -34,7 +34,7 @@ export const fetchAllReplyFromTopicTitle = async (title: String): Promise<Reply[
     }
 }
 
-export const fetchAllReplyFromUserId = async (createdBy: Number): Promise<Reply[]> => {
+export const fetchAllReplyFromUserId = async (createdBy: number): Promise<Reply[]> => {
     try {
         const res = await api.get<Reply[]>(`replies/user/${createdBy}`);
         return res.data;
@@ -50,7 +50,7 @@ export const fetchAllReplyFromUserId = async (createdBy: Number): Promise<Reply[
     }
 }
 
-export const fetchAllReplyFromTopicId = async (topicId: Number): Promise<Reply[]> => {
+export const fetchAllReplyFromTopicId = async (topicId: number): Promise<Reply[]> => {
     try {
         const res = await api.get<Reply[]>(`replies/topic/${topicId}`);
         return res.data;
@@ -66,7 +66,7 @@ export const fetchAllReplyFromTopicId = async (topicId: Number): Promise<Reply[]
     }
 }
 
-export const createReplyWithTopicID = async (topicId:Number, createReplyData:Reply): Promise<Reply[]> => {
+export const createReplyWithTopicID = async (topicId:number, createReplyData:Reply): Promise<Reply[]> => {
     try {
         const res = await api.post<Reply[]>(`replies/${topicId}/create`);
         return res.data;
@@ -82,7 +82,7 @@ export const createReplyWithTopicID = async (topicId:Number, createReplyData:Rep
     }
 }
 
-export const updateReplyWithId = async (id:Number): Promise<Reply[]> => {
+export const updateReplyWithId = async (id:number): Promise<Reply[]> => {
     try {
         const res = await api.patch<Reply[]>(`replies/${id}/update`);
         return res.data;
@@ -98,7 +98,7 @@ export const updateReplyWithId = async (id:Number): Promise<Reply[]> => {
     }
 }
 
-export const switchActiveWithId = async (id:Number): Promise<Reply[]> => {
+export const switchActiveWithId = async (id:number): Promise<Reply[]> => {
     try {
         const res = await api.patch<Reply[]>(`replies/${id}/switch`);
         return res.data;

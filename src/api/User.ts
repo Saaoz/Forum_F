@@ -19,7 +19,7 @@ export const fetchAllUser = async (): Promise<User[]> => {
     }
 }
 
-export const fetchUserById = async (id:Number): Promise<User[]> => {
+export const fetchUserById = async (id:number): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/byid/${id}`);
         return res.data;
@@ -35,7 +35,7 @@ export const fetchUserById = async (id:Number): Promise<User[]> => {
     }
 }
 
-export const fetchUserByName = async (username:String): Promise<User[]> => {
+export const fetchUserByName = async (username:string): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/byname/${username}`);
         return res.data;
@@ -83,7 +83,7 @@ export const loginWithToken = async (loginData:User): Promise<User[]> => {
     }
 }
 
-export const banUserById = async (id:Number): Promise<User[]> => {
+export const banUserById = async (id:number): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/${id}/ban`);
         return res.data;
@@ -99,7 +99,7 @@ export const banUserById = async (id:Number): Promise<User[]> => {
     }
 }
 
-export const debanUserById = async (id:Number): Promise<User[]> => {
+export const debanUserById = async (id:number): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/${id}/deban`);
         return res.data;
@@ -115,7 +115,7 @@ export const debanUserById = async (id:Number): Promise<User[]> => {
     }
 }
 
-export const adminUserById = async (id:Number): Promise<User[]> => {
+export const adminUserById = async (id:number): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/${id}/admin`);
         return res.data;
@@ -131,7 +131,7 @@ export const adminUserById = async (id:Number): Promise<User[]> => {
     }
 }
 
-export const unadminUserById = async (id:Number): Promise<User[]> => {
+export const unadminUserById = async (id:number): Promise<User[]> => {
     try {
         const res = await api.get<User[]>(`users/${id}/unadmin`);
         return res.data;

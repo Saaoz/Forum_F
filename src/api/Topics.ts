@@ -18,7 +18,7 @@ export const fetchAllTopics = async (): Promise<Topic[]> => {
     }
 }
 
-export const fetchTopicById = async (id: Number): Promise<Topic[]> => {
+export const fetchTopicById = async (id: number): Promise<Topic[]> => {
     try {
         const res = await api.get<Topic[]>(`topics/${id}`);
         return res.data
@@ -34,7 +34,7 @@ export const fetchTopicById = async (id: Number): Promise<Topic[]> => {
     }
 }
 
-export const fetchTopicByCategoryId = async (categoryId: Number): Promise<Topic[]> => {
+export const fetchTopicByCategoryId = async (categoryId: number): Promise<Topic[]> => {
     try {
         const res = await api.get<Topic[]>(`topics/topic_category/${categoryId}`);
         return res.data
@@ -50,7 +50,7 @@ export const fetchTopicByCategoryId = async (categoryId: Number): Promise<Topic[
     }
 }
 
-export const fetchTopicByTitle = async (title: String): Promise<Topic[]> => {
+export const fetchTopicByTitle = async (title: string): Promise<Topic[]> => {
     try {
         const res = await api.post<Topic[]>(`topics/${title}`);
         return res.data
@@ -66,7 +66,7 @@ export const fetchTopicByTitle = async (title: String): Promise<Topic[]> => {
     }
 }
 
-export const fetchTopicByUserId = async (createdBy: Number): Promise<Topic[]> => {
+export const fetchTopicByUserId = async (createdBy: number): Promise<Topic[]> => {
     try {
         const res = await api.get<Topic[]>(`topics/topic_user/${createdBy}`);
         return res.data
@@ -99,7 +99,7 @@ export const createTopic = async (topicData:Topic): Promise<Topic[]> => {
     }
 }
 
-export const UpdateTopic = async (id:Number, topicData:Topic ): Promise<Topic[]> => {
+export const UpdateTopic = async (id:number, topicData:Topic ): Promise<Topic[]> => {
 
     try {
         const res = await api.patch<Topic[]>(`topics/${id}/update`, topicData);

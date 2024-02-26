@@ -19,7 +19,7 @@ export const fetchAllTag = async (): Promise<Tag[]> => {
     }
 }
 
-export const fetchTagByName = async (name:String): Promise<Tag[]> => {
+export const fetchTagByName = async (name:string): Promise<Tag[]> => {
     try {
         const res = await api.get<Tag[]>(`tags/${name}`);
         return res.data;
@@ -35,7 +35,7 @@ export const fetchTagByName = async (name:String): Promise<Tag[]> => {
     }
 }
 
-export const fetchAllTagFromTopicId = async (topicId: Number): Promise<Tag[]> => {
+export const fetchAllTagFromTopicId = async (topicId: number): Promise<Tag[]> => {
     try {
         const res = await api.get<Tag[]>(`tags/topic/${topicId}`);
         return res.data;
@@ -83,7 +83,7 @@ export const createTag = async (tagData:Tag): Promise<Tag[]> => {
     }
 }
 
-export const addTagToTopic = async (topicId: Number, tagId: Number): Promise<Tag[]> => {
+export const addTagToTopic = async (topicId: number, tagId: number): Promise<Tag[]> => {
     try {
         const res = await api.post<Tag[]>(`tags/topic/${topicId}/tag/${tagId}/add`);
         return res.data;
@@ -99,7 +99,7 @@ export const addTagToTopic = async (topicId: Number, tagId: Number): Promise<Tag
     }
 }
 
-export const updateTag = async (id:Number): Promise<Tag[]> => {
+export const updateTag = async (id:number): Promise<Tag[]> => {
     try {
         const res = await api.patch<Tag[]>(`tags/${id}/update`);
         return res.data;
@@ -115,7 +115,7 @@ export const updateTag = async (id:Number): Promise<Tag[]> => {
     }
 }
 
-export const deleteTagFromTopic = async (topicId:Number, tagId:Number ): Promise<Tag[]> => {
+export const deleteTagFromTopic = async (topicId:number, tagId:number ): Promise<Tag[]> => {
     try {
         const res = await api.delete<Tag[]>(`tags/topic/${topicId}/tag/${tagId}/delete`);
         return res.data;
