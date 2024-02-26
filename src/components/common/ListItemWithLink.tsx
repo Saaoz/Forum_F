@@ -6,10 +6,11 @@ interface ListItemWithLinkProps {
     id?: number;
     name: string;
     to: string;
+    index?: number;
     as?: 'h3' | 'li'
 }
 
-const ListItemWithLink: React.FC<ListItemWithLinkProps> = ({id, name, to, as = 'li'}) => {
+const ListItemWithLink: React.FC<ListItemWithLinkProps> = ({id, name, to, index, as = 'li'}) => {
     // const navigate = useNavigate();
 
     const handleClick = () => {
@@ -21,7 +22,7 @@ const ListItemWithLink: React.FC<ListItemWithLinkProps> = ({id, name, to, as = '
     const className = as === 'h3' ? 'h3_with_link' : 'item';
 
     return (
-        <Element onClick={handleClick} className={className} key={id}>
+        <Element onClick={handleClick} className={className} id={`item-${id}-${index}`}>
             {name}
         </Element>
     );
