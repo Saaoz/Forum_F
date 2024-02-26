@@ -1,110 +1,89 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import { FilterProps, SearchItem } from "../context/types";
-import { categoryData, tagData, topicData, userData } from "../../api/Data";
-import "../../style/Header.css"
+import "../../style/Header.css";
 import ListItemWithLink from "./ListItemWithLink";
-
+import { fetchUserByName } from "../../api/User";
+import { fetchTopicByTitle } from "../../api/Topics";
+import { fetchCategoryByName } from "../../api/Category";
+import { fetchTagByName } from "../../api/Tags";
 
 const Header: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredData, setFilteredData] = useState<SearchItem[]>([]);
-  const [filter, setFilter] = React.useState<FilterProps>({
+  const [filter, setFilter] = useState<FilterProps>({
     user: false,
     topic: false,
     tag: false,
     category: false,
   });
 
-  const handleSearch = (term: string) => {
+  const handleSearch = async (term: string) => {
     setSearchTerm(term);
-
+  
     if (term.length < 3) {
       setFilteredData([]);
       return;
     }
-
+  
     let results: SearchItem[] = [];
-    if (filter.user)
-      results = results.concat(
-        userData.filter((item) =>
-          item.name.toLowerCase().includes(term.toLowerCase())
-        )
-      );
-    if (filter.topic)
-      results = results.concat(
-        topicData.filter((item) =>
-          item.name.toLowerCase().includes(term.toLowerCase())
-        )
-      );
-    if (filter.tag)
-      results = results.concat(
-        tagData.filter((item) =>
-          item.name.toLowerCase().includes(term.toLowerCase())
-        )
-      );
-    if (filter.category)
-      results = results.concat(
-        categoryData.filter((item) =>
-          item.name.toLowerCase().includes(term.toLowerCase())
-        )
-      );
 
+    if (filter.user) {
+      try {
+        const users = await fetchUserByName(term);
+        if (users.length > 0) {
+      const  userSearchItems = (users.map((u) => ({ id: u.id, name: u.username || "" })));
+      results = results.concat(userSearchItems);  
+        } 
+      } catch (error) {
+          console.error("error from filterTopics", error);
+        }
+    } 
+
+    if (filter.topic) {
+      try {
+        const topics = await fetchTopicByTitle(term);
+        if (topics.length > 0) {
+      const  topicSearchItems = (topics.map((t) => ({ id: t.id, name: t.title || "" })));
+      results = results.concat(topicSearchItems);  
+        }
+      } catch (error) {
+          console.error("error from filterTopics", error);
+        }
+    } 
+    
+    if (filter.tag) {
+      try {
+        const tags = await fetchTagByName(term);
+        if (tags.length > 0) {
+      const  tagSearchItems = (tags.map((t) => ({ id: t.id, name: t.name || "" })));
+      results = results.concat(tagSearchItems);  
+        } else { void(results)}
+      } catch (error) {
+          console.error("error from filterTags", error);
+        }
+    } 
+
+    if (filter.category) {
+      try {
+        const categories = await fetchCategoryByName(term);
+        if (categories.length > 0) {
+          const categorySearchItems = categories.map((c) => ({ id: c.id, name: c.name || "" }));
+          results = results.concat(categorySearchItems);
+        } 
+      } catch (error) {
+        console.error("error from filterCategory", error);
+      }
+    }
+  
     setFilteredData(results);
   };
 
   const handleChange = (term: string) => {
     setSearchTerm(term);
-
-    if (term.length < 3) {
-      setFilteredData([]);
-      return;
+    if (term.length >= 3) {
+      handleSearch(term);
     }
-
-    let results: SearchItem[] = [];
-
-    // Vérifie si aucun filtre n'est sélectionné
-    const noFilterSelected = Object.values(filter).every(
-      (value) => value === false
-    );
-
-    if (noFilterSelected) {
-      // Si aucun filtre n'est sélectionné, recherche dans toutes les catégories
-      results = results
-        .concat(userData)
-        .concat(topicData)
-        .concat(tagData)
-        .concat(categoryData)
-        .filter((item) => item.name.toLowerCase().includes(term.toLowerCase()));
-    } else {
-      // Sinon, filtre en fonction des filtres sélectionnés
-      if (filter.user)
-        results = results.concat(
-          userData.filter((item) =>
-            item.name.toLowerCase().includes(term.toLowerCase())
-          )
-        );
-      if (filter.topic)
-        results = results.concat(
-          topicData.filter((item) =>
-            item.name.toLowerCase().includes(term.toLowerCase())
-          )
-        );
-      if (filter.tag)
-        results = results.concat(
-          tagData.filter((item) =>
-            item.name.toLowerCase().includes(term.toLowerCase())
-          )
-        );
-      if (filter.category)
-        results = results.concat(
-          categoryData.filter((item) =>
-            item.name.toLowerCase().includes(term.toLowerCase())
-          )
-        );
-    }
-
-    setFilteredData(results);
   };
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,22 +92,21 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      Logo
-    <div className="searchbar">
-    <SearchBar
-      onSearch={handleSearch}
-      onChange={handleChange}
-      filter={filter} 
-      onFilterChange={handleFilterChange}
-    />
-    {filteredData.map((item) => (
-      <ListItemWithLink key={item.id} name={item.name} to={`/`} />
-    ))}
-{/* {filteredData.map((item) => (
-<ListItemWithLink key={item.id} name={item.name} to={`/${item.category}/${item.name}`} />
-))} */}
-    </div>
-      Profil
+      <div className="logo">Logo</div>
+      <div className="searchbar">
+        <SearchBar
+          onSearch={handleSearch}
+          onChange={handleChange}
+          filter={filter}
+          onFilterChange={handleFilterChange}
+        />
+        {filteredData.map((item, index) => (
+  <ListItemWithLink
+    key={`item-${item.id}-${index}`} name={item.name} to={`/`} index={index} 
+  />
+))}
+      </div>
+      <div className="profile">Profil</div>
     </header>
   );
 };
