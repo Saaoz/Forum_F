@@ -18,98 +18,98 @@ export type FilterChangeHandler = (
 //Type working with back-end 
 
 export type User = {
-  id: Number;
-  username?: String;
-  password?: String;
-  email?: String;   
+  id: number;
+  username?: string;
+  password?: string;
+  email?: string;   
   date_registered?: Date; 
   last_login?: Date; 
-  is_admin?: Boolean;
-  is_banned?: Boolean; 
-  is_active?: Boolean;
-  avatar?: String;
-  bio?: String;
+  is_admin?: boolean;
+  is_banned?: boolean; 
+  is_active?: boolean;
+  avatar?: string;
+  bio?: string;
 }
 
 export type Category = {
-  id: Number;
-  name?: String;
-  description?: String;
-  is_active?: Boolean ;
+  id: number;
+  name?: string;
+  description?: string;
+  is_active?: boolean ;
 }
 
 export type Topic = {
-  id: Number;
-  title?: String;
-  description?: String;
-  createdBy?: Number;
+  id: number;
+  title?: string;
+  description?: string;
+  createdBy?: number;
   dateCreated?: Date;
-  categoryId?: Number;
-  is_pinned?: Boolean;
-  is_closed?: Boolean;
-  is_active?: Boolean; 
+  categoryId?: number;
+  is_pinned?: boolean;
+  is_closed?: boolean;
+  is_active?: boolean; 
 }
 
 export type Reply = {
-  id: Number;
-  content?: String;
-  createdBy?: Number;
-  topicId?: Number;
+  id: number;
+  content?: string;
+  createdBy?: number;
+  topicId?: number;
   dateCreated?: Date;
-  is_active?: Boolean;
+  is_active?: boolean;
 }
 
 export type UserFavorite = {
-  id: Number; 
-  userId?: Number; 
-  topicId?: Number; 
+  id: number; 
+  userId?: number; 
+  topicId?: number; 
 }
 
 export type Friendship = {
-  id: Number; 
-  userId1?: Number; 
-  userId2?: Number; 
-  status?: String; 
+  id: number; 
+  userId1?: number; 
+  userId2?: number; 
+  status?: string; 
 }
 
 export type Chat = {
-  id: Number;
-  userId1?: Number; 
-  userId2?: Number; 
+  id: number;
+  userId1?: number; 
+  userId2?: number; 
 }
 
 export type ChatMessage = {
-  id: Number;    
-  chatId?: Number; 
-  content?: String;
-  sentBy?: Number; 
+  id: number;    
+  chatId?: number; 
+  content?: string;
+  sentBy?: number; 
   dateSent?: Date;
-  is_read?: Boolean; 
+  is_read?: boolean; 
 }
 
 export type UserNotification = {
-  id: Number;    
-  userId?: Number; 
-  content?: String;
+  id: number;    
+  userId?: number; 
+  content?: string;
   dateCreated?: Date;
-  is_read?: Boolean;  
+  is_read?: boolean;  
 }
 
 export type ModerationLog = {
-  id: Number;
-  action?: String;
-  description?: String;
-  adminId?: Number;
+  id: number;
+  action?: string;
+  description?: string;
+  adminId?: number;
   dateCreated?: Date;
 }
 
 export type Tag = {
-  id: Number;      
-  name?: String;     
+  id: number;      
+  name?: string;     
 }
 
 export type TopicTag = {
-  topicId: Number;
-  tagId: Number;
+  topicId: number;
+  tagId: number;
   createdAt: Date;
 }
