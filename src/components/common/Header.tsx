@@ -9,6 +9,7 @@ import { fetchCategoryByName } from "../../api/Category";
 import { fetchTagByName } from "../../api/Tags";
 
 const Header: React.FC = () => {
+  const [message, setMessage] = useState<string>("")
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredData, setFilteredData] = useState<SearchItem[]>([]);
   const [filter, setFilter] = useState<FilterProps>({
@@ -76,7 +77,14 @@ const Header: React.FC = () => {
       }
     }
   
-    setFilteredData(results);
+    if (results.length === 0) {
+      setFilteredData([]);
+      setMessage("Aucun résultat trouvé");
+    } else {
+      setFilteredData(results);
+      setMessage("");
+    }
+    
   };
 
   const handleChange = (term: string) => {
@@ -105,6 +113,7 @@ const Header: React.FC = () => {
     key={`item-${item.id}-${index}`} name={item.name} to={`/`} index={index} 
   />
 ))}
+  {message && <div className="search-message">{message}</div> }
       </div>
       <div className="profile">Profil</div>
     </header>
