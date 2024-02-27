@@ -8,10 +8,8 @@ export const fetchAllUser = async (): Promise<User[]> => {
         const res = await api.get<User[]>(`users/`);
         return res.data;
     } catch (error) {
-        if (axios.isAxiosError(error)) {
-            console.error('Error fetching AllUser:', error.message);
-
-            throw new Error('An error occured while fetching AllUser');
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+            return [];
         } else {
             console.error('Unexpected error:', error);
             throw new Error('An unexpected error occured')
@@ -24,10 +22,8 @@ export const fetchUserById = async (id:number): Promise<User[]> => {
         const res = await api.get<User[]>(`users/byid/${id}`);
         return res.data;
     } catch (error) {
-        if (axios.isAxiosError(error)) {
-            console.error('Error fetching UserById:', error.message);
-
-            throw new Error('An error occured while fetching UserById');
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+            return [];
         } else {
             console.error('Unexpected error:', error);
             throw new Error('An unexpected error occured')
@@ -40,10 +36,8 @@ export const fetchUserByName = async (username:string): Promise<User[]> => {
         const res = await api.get<User[]>(`users/byname/${username}`);
         return res.data;
     } catch (error) {
-        if (axios.isAxiosError(error)) {
-            console.error('Error fetching UserByName:', error.message);
-
-            throw new Error('An error occured while fetching UserByName');
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+            return [];
         } else {
             console.error('Unexpected error:', error);
             throw new Error('An unexpected error occured')
