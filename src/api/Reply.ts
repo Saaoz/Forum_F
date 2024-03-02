@@ -99,3 +99,17 @@ export const switchActiveWithId = async (id:number): Promise<Reply[]> => {
         }
     }
 }
+
+// export const replyCountWithTopicId = async (id:number): Promise<Reply[]> => {
+//     try {
+//         const res = await api.get<Reply[]>(`replies/countReply/${id}`);
+//         return res.data;        
+//     } catch (error) {
+//         if (axios.isAxiosError(error) && error.response?.status === 404) {
+//             return [];
+//         } else {
+//             console.error('Unexpected error:', error);
+//             throw new Error('An unexpected error occured')
+//         }
+//     }
+// }
