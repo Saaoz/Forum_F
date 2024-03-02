@@ -101,3 +101,17 @@ export const UpdateTopic = async (id:number, topicData:Topic ): Promise<Topic[]>
         }
     }
 }
+
+export const allTopTopicsWithReplyCount = async (): Promise<Topic[]> => {
+    try {
+        const res = await api.get<Topic[]>('topics/topic_reply/count');
+        return res.data;
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+            return [];
+        } else {
+            console.error('Unexpected error:', error);
+            throw new Error('An unexpected error occured')
+        }
+    }
+}
