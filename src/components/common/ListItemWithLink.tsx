@@ -4,7 +4,7 @@ import React from "react";
 
 interface ListItemWithLinkProps {
     id?: number;
-    name: string;
+    name?: string;
     to: string;
     index?: number;
     as?: 'h3' | 'li'
