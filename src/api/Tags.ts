@@ -45,9 +45,9 @@ export const fetchAllTagFromTopicId = async (topicId: number): Promise<Tag[]> =>
     }
 }
 
-export const fetchTop20Tag = async (): Promise<Tag[]> => {
+export const fetchTop10Tag = async (): Promise<Tag[]> => {
     try {
-        const res = await api.get<Tag[]>(`tags/rank/top20`);
+        const res = await api.get<Tag[]>(`tags/rank/top10`);
         return res.data;
     } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 404) {
