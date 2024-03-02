@@ -113,3 +113,10 @@ export type TopicTag = {
   tagId: number;
   createdAt: Date;
 }
+
+export type TopicWithReplyDetails = {
+  id?: number;
+  title?: string;
+  replyCount?: number;
+  lastActivity?: string; //because of date-fns using string and not Date 
+}
